@@ -15,7 +15,7 @@
   <li>Alterei um pouco a disposição dos inputs colocando "data de nascimento" e "profissão" um ao lado do outro.</li>
   <li>Criei a classe ClienteForm para centralizar o request do form.</li>
 </ol>
-<em>P.s: Talvez tenha esquecido alguma outra alteração. Essas adaptações acima, são as que julgo mais relevantes.</em>
+<em>P.s: Talvez tenha esquecido alguma outra alteração. Essas adaptações acima são as que julgo mais relevantes.</em>
 
 
 
