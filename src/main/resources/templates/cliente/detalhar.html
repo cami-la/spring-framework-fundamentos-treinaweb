@@ -34,7 +34,7 @@
                         Profissão: <span th:text="${cliente.profissao}"></span>
                     </p>
                     <p>
-                        Data de Nascimento: <span th:text="${cliente.dataNascimento}"></span>
+                        Data de Nascimento: <span th:text="${#temporals.format(cliente.dataNascimento, 'dd/MM/yyyy')}"></span>
                     </p>
                     <a href="" class="btn btn-warning">Editar</a>
                     <a href="" class="btn btn-danger">Excluir</a>

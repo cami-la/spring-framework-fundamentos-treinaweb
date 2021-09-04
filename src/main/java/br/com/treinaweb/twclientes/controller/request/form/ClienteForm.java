@@ -1,24 +1,27 @@
 package br.com.treinaweb.twclientes.controller.request.form;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import br.com.treinaweb.twclientes.model.Cliente;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
-@Getter
+@Data
 public class ClienteForm {
 
     private Long id;
 
     private String nome;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dataNascimento;
 
-    private LocalDate Profissao;
+    private String Profissao;
+
+    public Cliente converter() {
+        return new Cliente(this.getId(), this.getNome(), this.getDataNascimento(), this.getProfissao());
+    }
 
 }

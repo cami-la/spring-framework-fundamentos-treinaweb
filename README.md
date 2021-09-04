@@ -11,6 +11,10 @@ Utilizei a propriedade acima para criar o banco de dados caso não exista e tamb
 8 - Criei a classe ClienteDto para controlar o que será exibido sobre o cliente<br>
 9 - Formatei a data de nascimento utilizando o ${#temporals.format(cliente.dataNascimento, 'dd/MM/yyyy')}
 10 - Para implementar a funcionalidade de detalhar, utilizei o método findById() no lugar do getOne() <br>
+11 - Extrai o bloco que faz a verificação se deterrminado cliente existe associando a um id.
+Com isso, fiz um tratamento de erro bem genérico.
+12 - Alterei um pouco a disposição dos inputs, colocando "data de nascimento" e "profissão" um ao lado do outro.
+
 
 
 

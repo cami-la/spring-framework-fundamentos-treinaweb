@@ -2,12 +2,14 @@ package br.com.treinaweb.twclientes.controller;
 
 import br.com.treinaweb.twclientes.controller.request.form.ClienteForm;
 import br.com.treinaweb.twclientes.controller.response.dto.ClienteDto;
+import br.com.treinaweb.twclientes.model.Cliente;
 import br.com.treinaweb.twclientes.service.ClienteService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -58,6 +60,33 @@ public class ClienteController {
         return modelAndView;
     }
 
+    @PostMapping("/cadastrar")
+    public ModelAndView cadastrar(ClienteForm clienteForm) {
+        ModelAndView modelAndView = new ModelAndView("redirect:/cliente");
 
+        clienteService.save(clienteForm);
+
+        return modelAndView;
+    }
+
+    @GetMapping("/{id}/editar")
+    public ModelAndView update(@PathVariable Long id) throws Exception {
+        ModelAndView modelAndView = new ModelAndView("cliente/editar");
+
+        Cliente cliente = clienteService.getClienteByid(id);
+
+        modelAndView.addObject("cliente", cliente);
+
+        return modelAndView;
+    }
+
+    @PostMapping("/{id}/editar")
+    public ModelAndView update(ClienteForm clienteForm) {
+        ModelAndView modelAndView = new ModelAndView("redirect:/cliente");
+
+        clienteService.save(clienteForm);
+
+        return modelAndView;
+    }
     
 }

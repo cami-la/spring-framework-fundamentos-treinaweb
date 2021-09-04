@@ -1,6 +1,7 @@
 package br.com.treinaweb.twclientes.model;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -13,11 +14,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "CLIENTE")
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Data
 public class Cliente {
 
     @Id
@@ -28,9 +28,15 @@ public class Cliente {
     private String nome;
 
     @Column(nullable = false, name = "data_nascimento")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dataNascimento;
 
     @Column(nullable = false, name = "profissao")
     private String profissao;
 
+    public Cliente(String nome, LocalDate dataNascimento, String profissao) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.profissao = profissao;
+    }
 }

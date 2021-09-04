@@ -47,9 +47,9 @@
                     <td th:text="${#temporals.format(cliente.dataNascimento, 'dd/MM/yyyy')}"></td>
                     <td th:text="${cliente.profissao}"></td>
                     <td>
-                        <a href="" class="btn btn-warning">Editar</a>
+                        <a th:href="@{/cliente/{id}/editar (id=${cliente.id})}" class="btn btn-warning">Editar</a>
                         <a th:href="@{/cliente/{id}/excluir (id=${cliente.id})}"
-                           class="btn btn-danger" onclick="return confirm('Excluir o cliente?');'">Excluir</a>
+                           class="btn btn-danger" onclick="return confirm('Excluir o cliente?');">Excluir</a>
                     </td>
                 </tr>
                 </tbody>
@@ -59,7 +59,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <a href="" class="btn btn-primary">Cadastrar novo cliente</a>
+            <a th:href="@{/cliente/cadastrar}" class="btn btn-primary">Cadastrar novo cliente</a>
         </div>
     </div>
 
