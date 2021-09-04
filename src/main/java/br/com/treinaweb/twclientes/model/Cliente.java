@@ -1,5 +1,7 @@
 package br.com.treinaweb.twclientes.model;
 
+import lombok.*;
+
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -11,6 +13,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "CLIENTE")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Cliente {
 
     @Id
@@ -25,48 +32,5 @@ public class Cliente {
 
     @Column(nullable = false, name = "profissao")
     private String profissao;
-
-    
-    public Cliente() {
-    }
-
-    public Cliente(Long id, String nome, LocalDate dataNascimento, String profissao) {
-        this.id = id;
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-        this.profissao = profissao;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getProfissao() {
-        return profissao;
-    }
-
-    public void setProfissao(String profissao) {
-        this.profissao = profissao;
-    }
 
 }

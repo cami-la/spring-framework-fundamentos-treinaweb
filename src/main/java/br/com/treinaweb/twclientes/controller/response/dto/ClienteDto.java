@@ -1,11 +1,17 @@
 package br.com.treinaweb.twclientes.controller.response.dto;
 
+import br.com.treinaweb.twclientes.model.Cliente;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.treinaweb.twclientes.model.Cliente;
-
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ClienteDto {
 
     private Long id;
@@ -27,25 +33,5 @@ public class ClienteDto {
     public static List<ClienteDto> converter (List<Cliente> clientes) {
         return clientes.stream().map(ClienteDto::new).collect(Collectors.toList());
     }
-
-    public ClienteDto() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public String getProfissao() {
-        return profissao;
-    }
-
     
 }

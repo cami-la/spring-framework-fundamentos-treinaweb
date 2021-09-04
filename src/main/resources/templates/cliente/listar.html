@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Listagem de Clientes</title>
+</head>
+
+<body>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Listagem de Clientes</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-dark table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Data de Nascimento</th>
+                    <th scope="col">Profissão</th>
+                    <th scope="col">Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="cliente: ${clientes}">
+                    <th scope="row" th:text=" ${cliente.id}"></th>
+                    <td th:text="${cliente.nome}"></td>
+                    <td th:text="${#temporals.format(cliente.dataNascimento, 'dd/MM/yy')}"></td>
+                    <td th:text="${cliente.profissao}"></td>
+                    <td>
+                        <a href="" class="btn btn-warning">Editar</a>
+                        <a href="" class="btn btn-danger">Excluir</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <a href="" class="btn btn-primary">Cadastrar novo cliente</a>
+        </div>
+    </div>
+
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+</script>
+</body>
+
+</html>
