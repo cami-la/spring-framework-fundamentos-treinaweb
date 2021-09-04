@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Spring Fundamentos - Cadastrar novo cliente</title>
+</head>
+
+<body>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+    </div>
+</nav>
+
+<main class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1>Cadastrar novo cliente</h1>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form method="post" th:object="${cliente}">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" th:field="*{nome}">
+                </div>
+                <div class="mb-3">
+                    <label for="dataNascimento" class="form-label">Data de Nascimento: </label>
+                    <input type="date" class="form-control" id="dataNascimento" th:field="*{dataNascimento}">
+                </div>
+                <div class="mb-3">
+                    <label for="profissao" class="form-label">Profissão: </label>
+                    <input type="text" class="form-control" id="profissao" th:field="*{profissao}">
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+</script>
+</body>
+
+</html>

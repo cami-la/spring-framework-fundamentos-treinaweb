@@ -1,20 +1,19 @@
 package br.com.treinaweb.twclientes.controller;
 
+import br.com.treinaweb.twclientes.controller.request.form.ClienteForm;
 import br.com.treinaweb.twclientes.controller.response.dto.ClienteDto;
+import br.com.treinaweb.twclientes.service.ClienteService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
-import br.com.treinaweb.twclientes.service.ClienteService;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/cliente")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class ClienteController {
@@ -23,7 +22,7 @@ public class ClienteController {
 
     @GetMapping
     public ModelAndView listar() {
-        ModelAndView modelAndView = new ModelAndView("cliente/listar.html");
+        ModelAndView modelAndView = new ModelAndView("cliente/listar");
 
         List<ClienteDto> clientes = clienteService.listAll();
 
@@ -34,7 +33,7 @@ public class ClienteController {
 
     @GetMapping("/{id}")
     public ModelAndView detalhar(@PathVariable Long id) throws Throwable {
-        ModelAndView modelAndView = new ModelAndView("cliente/detalhar.html");
+        ModelAndView modelAndView = new ModelAndView("cliente/detalhar");
 
         modelAndView.addObject("cliente", clienteService.detalhar(id));
 
@@ -49,6 +48,16 @@ public class ClienteController {
 
         return modelAndView;
     }
+
+    @GetMapping("/cadastrar")
+    public ModelAndView cadastrar() {
+        ModelAndView modelAndView = new ModelAndView("cliente/cadastro");
+
+        modelAndView.addObject("cliente", new ClienteForm());
+
+        return modelAndView;
+    }
+
 
     
 }
