@@ -16,6 +16,3 @@
   <li>Criei a classe ClienteForm para centralizar o request do form.</li>
 </ol>
 <em>P.s: Talvez tenha esquecido alguma outra alteração. Essas adaptações acima são as que julgo mais relevantes.</em>
-
-
-
