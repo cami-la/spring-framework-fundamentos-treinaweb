@@ -39,13 +39,17 @@
                 </thead>
                 <tbody>
                 <tr th:each="cliente: ${clientes}">
-                    <th scope="row" th:text=" ${cliente.id}"></th>
-                    <td th:text="${cliente.nome}"></td>
-                    <td th:text="${#temporals.format(cliente.dataNascimento, 'dd/MM/yy')}"></td>
+                    <th scope="row" th:text="${cliente.id}"></th>
+                    <td>
+                        <a th:text="${cliente.nome}"
+                           th:href="@{/cliente/{id} (id=${cliente.id})}"></a>
+                    </td>
+                    <td th:text="${#temporals.format(cliente.dataNascimento, 'dd/MM/yyyy')}"></td>
                     <td th:text="${cliente.profissao}"></td>
                     <td>
                         <a href="" class="btn btn-warning">Editar</a>
-                        <a href="" class="btn btn-danger">Excluir</a>
+                        <a th:href="@{/cliente/{id}/excluir (id=${cliente.id})}"
+                           class="btn btn-danger" onclick="return confirm('Excluir o cliente?');'">Excluir</a>
                     </td>
                 </tr>
                 </tbody>
