@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+   <!--- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> --->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 
     <title>Detalhes do Cliente</title>
 </head>
@@ -36,17 +37,19 @@
                     <p>
                         Data de Nascimento: <span th:text="${#temporals.format(cliente.dataNascimento, 'dd/MM/yyyy')}"></span>
                     </p>
-                    <a href="" class="btn btn-warning">Editar</a>
-                    <a href="" class="btn btn-danger">Excluir</a>
+                    <a th:href="@{/cliente/{id}/editar (id=${cliente.id})}" class="btn btn-warning">Editar</a>
+                    <a th:href="@{/cliente/{id}/excluir (id=${cliente.id})}" class="btn btn-danger">Excluir</a>
                 </div>
             </div>
         </div>
     </div>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+<!--- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
-</script>
+</script> --->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
 </body>
 
 </html>
