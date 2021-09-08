@@ -3,7 +3,7 @@ package br.com.treinaweb.twclientes.controller;
 import br.com.treinaweb.twclientes.controller.request.form.ClienteForm;
 import br.com.treinaweb.twclientes.controller.response.dto.ClienteDto;
 import br.com.treinaweb.twclientes.model.Cliente;
-import br.com.treinaweb.twclientes.service.ClienteService;
+import br.com.treinaweb.twclientes.service.ClienteServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,13 +20,13 @@ import java.util.List;
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class ClienteController {
 
-    private ClienteService clienteService;
+    private ClienteServiceImpl clienteServiceImpl;
 
     @GetMapping
     public ModelAndView listar() {
         ModelAndView modelAndView = new ModelAndView("cliente/listar");
 
-        List<ClienteDto> clientes = clienteService.listAll();
+        List<ClienteDto> clientes = clienteServiceImpl.listAll();
 
         modelAndView.addObject("clientes", clientes);
 
@@ -37,7 +37,7 @@ public class ClienteController {
     public ModelAndView detalhar(@PathVariable Long id) throws Throwable {
         ModelAndView modelAndView = new ModelAndView("cliente/detalhar");
 
-        modelAndView.addObject("cliente", clienteService.detalhar(id));
+        modelAndView.addObject("cliente", clienteServiceImpl.detalhar(id));
 
         return modelAndView;
     }
@@ -46,7 +46,7 @@ public class ClienteController {
     public ModelAndView excluir(@PathVariable Long id) throws Exception {
         ModelAndView modelAndView = new ModelAndView("redirect:/cliente");
 
-        clienteService.excluir(id);
+        clienteServiceImpl.excluir(id);
 
         return modelAndView;
     }
@@ -64,7 +64,7 @@ public class ClienteController {
     public ModelAndView cadastrar(ClienteForm clienteForm) {
         ModelAndView modelAndView = new ModelAndView("redirect:/cliente");
 
-        clienteService.save(clienteForm);
+        clienteServiceImpl.save(clienteForm);
 
         return modelAndView;
     }
@@ -73,7 +73,7 @@ public class ClienteController {
     public ModelAndView update(@PathVariable Long id) throws Exception {
         ModelAndView modelAndView = new ModelAndView("cliente/editar");
 
-        Cliente cliente = clienteService.getClienteByid(id);
+        Cliente cliente = clienteServiceImpl.getClienteByid(id);
 
         modelAndView.addObject("cliente", cliente);
 
@@ -84,7 +84,7 @@ public class ClienteController {
     public ModelAndView update(ClienteForm clienteForm) {
         ModelAndView modelAndView = new ModelAndView("redirect:/cliente");
 
-        clienteService.save(clienteForm);
+        clienteServiceImpl.save(clienteForm);
 
         return modelAndView;
     }

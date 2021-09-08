@@ -7,13 +7,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Controller
 @RequestMapping("/")
 public class HomeController {
 
     @GetMapping("/")
-    public String home() {
-        return "home";
+    public ModelAndView home() {
+        ModelAndView modelAndView = new ModelAndView("home");
+        modelAndView.addObject("boasVindas", "Bem-vindo o curso de Spring com Thymeleaf");
+
+        List<String> aulas = Arrays.asList(
+                "Aula 01 - Introdução",
+                "Aula 02 - Template Engines",
+                "Aula 03 - Arquivos Estáticos"
+        );
+
+        modelAndView.addObject("aulas", aulas);
+
+        return modelAndView;
     }
 
     @GetMapping("/mensagem")

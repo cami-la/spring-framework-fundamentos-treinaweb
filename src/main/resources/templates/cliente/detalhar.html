@@ -38,7 +38,7 @@
                         Data de Nascimento: <span th:text="${#temporals.format(cliente.dataNascimento, 'dd/MM/yyyy')}"></span>
                     </p>
                     <a th:href="@{/cliente/{id}/editar (id=${cliente.id})}" class="btn btn-warning">Editar</a>
-                    <a th:href="@{/cliente/{id}/excluir (id=${cliente.id})}" class="btn btn-danger">Excluir</a>
+                    <a th:href="@{/cliente/{id}/excluir (id=${cliente.id})}" class="btn btn-danger" onclick="return confirm('Excluir o cliente?');">Excluir</a>
                 </div>
             </div>
         </div>
