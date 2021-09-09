@@ -22,7 +22,8 @@ public class HomeController {
         List<String> aulas = Arrays.asList(
                 "Aula 01 - Introdução",
                 "Aula 02 - Template Engines",
-                "Aula 03 - Arquivos Estáticos"
+                "Aula 03 - Arquivos Estáticos",
+                "Aula 04 - Exibindo Informações"
         );
 
         modelAndView.addObject("aulas", aulas);

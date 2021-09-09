@@ -30,12 +30,15 @@
         <div class="col-sm-12">
             <p th:text="${boasVindas}"></p>
             <!-- <p>[[${boasVindas}]]</p> -->
+            <!-- <p th:utext="${boasVindas}"></p> -->
         </div>
     </div>
     <div class="row">
     <div class="col-sm-12">
-        <p th:text="${aulas}"></p>
-        <!-- <p>[[${boasVindas}]]</p> -->
+        <p>Lista de Aulas</p>
+        <ul>
+            <li th:each="aula: ${aulas}" th:text="${aula}"></li>
+        </ul>
     </div>
     </div>
 </main>
