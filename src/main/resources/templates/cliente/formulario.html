@@ -9,7 +9,9 @@
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> --->
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 
-    <title>Spring Fundamentos - Editar cliente</title>
+    <!-- <title th:if="${cliente.id != null}">Spring Fundamentos - Editar cliente</title>
+    <title th:if="${cliente.id == null}">Spring Fundamentos - Cadastrar novo cliente</title> -->
+    <title th:text="${cliente.id == null ? 'Spring Fundamentos - Cadastrar novo cliente' : 'Spring Fundamentos - Editar cliente'}"></title>
 </head>
 
 <body>
@@ -23,7 +25,9 @@
     <div class="row">
         <div class="col-sm-12">
 
-            <h1>Editar cliente</h1>
+            <!-- <h1 th:if="${cliente.id != null}">Editar cliente</h1>
+            <h1 th:if="${cliente.id == null}">Cadastrar novo cliente</h1> -->
+            <h1 th:text="${cliente.id == null ? 'Cadastrar novo cliente' : 'Editar cliente'}"></h1>
 
         </div>
     </div>

@@ -53,7 +53,7 @@ public class ClienteController {
 
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar() {
-        ModelAndView modelAndView = new ModelAndView("cliente/cadastro");
+        ModelAndView modelAndView = new ModelAndView("cliente/formulario");
 
         modelAndView.addObject("cliente", new ClienteForm());
 
@@ -71,7 +71,7 @@ public class ClienteController {
 
     @GetMapping("/{id}/editar")
     public ModelAndView update(@PathVariable Long id) throws Exception {
-        ModelAndView modelAndView = new ModelAndView("cliente/editar");
+        ModelAndView modelAndView = new ModelAndView("cliente/formulario");
 
         Cliente cliente = clienteServiceImpl.getClienteByid(id);
 
