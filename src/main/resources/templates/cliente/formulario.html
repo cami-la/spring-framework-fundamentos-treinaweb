@@ -15,11 +15,8 @@
 </head>
 
 <body>
-<nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-    </div>
-</nav>
+
+<div th:replace="~{fragments/_navbar :: nav}"></div>
 
 <main class="container">
     <div class="row">
@@ -34,21 +31,30 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <form method="post" th:object="${cliente}">
+            <form method="POST" th:object="${cliente}">
                 <input type="hidden" th:field="*{id}">
 
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" th:field="*{nome}">
-                </div>
+                </div> -->
+                <div th:replace="~{fragments/_bootstrap-fields :: input('nome', 'Nome', 'text')}"></div>
+
                 <div class="row g-3">
-                    <div class="col-sm-7">
+                    <!-- <div class="col-sm-7">
                         <label for="dataNascimento" class="form-label">Data de Nascimento: </label>
                         <input type="date" class="form-control" id="dataNascimento" th:field="*{dataNascimento}">
+                    </div> -->
+                    <div class="col-sm-7">
+                        <div th:replace="~{fragments/_bootstrap-fields :: input('dataNascimento', 'Data de Nascimento', 'date')}"></div>
                     </div>
-                    <div class="col-sm">
+
+                    <!-- <div class="col-sm">
                         <label for="profissao" class="form-label">Profissão: </label>
                         <input type="text" class="form-control" id="profissao" th:field="*{profissao}">
+                    </div> -->
+                    <div class="col-sm">
+                        <div th:replace="~{fragments/_bootstrap-fields :: input('profissao', 'Profissao', 'text')}"></div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">Salvar</button>

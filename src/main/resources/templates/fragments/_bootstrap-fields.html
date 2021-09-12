@@ -1,0 +1,4 @@
+<div th:fragment="input (field, label, type)" class="mb-3" xmlns:th="http://www.w3.org/1999/xhtml">
+    <label th:for="${field}" class="form-label" th:text="${label}"></label>
+    <input th:type="${type}" class="form-control" th:id="${field}" th:field="*{__${field}__}">
+</div>
