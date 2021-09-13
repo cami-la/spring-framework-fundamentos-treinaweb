@@ -2,21 +2,21 @@
 <html th:replace="~{layout :: layout (~{::title}, ~{::main})}" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>Listagem de Clientes</title>
+    <title th:text="#{listar.title}"></title>
 </head>
 
 <body>
 <main class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h1>Listagem de Clientes</h1>
+            <h1 th:text="#{listar.header}"></h1>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-12">
             <!-- <h5 th:if="${clientes.isEmpty()}">No momento, não há clientes cadastrados</h5> -->
-            <h5 th:if="${#lists.isEmpty(clientes)}">No momento, não há clientes cadastrados</h5>
+            <h5 th:if="${#lists.isEmpty(clientes)}" th:text="#{listar.table.empty}"></h5>
             <table class="table table-dark table-hover" th:unless="${clientes.isEmpty()}">
             <!-- <table class="table table-dark table-hover" th:if="${! #lists.isEmpty(clientes)}"> -->
             <!-- <table class="table table-dark table-hover" th:if="${not clientes.isEmpty()}"> -->
@@ -24,10 +24,10 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Data de Nascimento</th>
-                    <th scope="col">Profissão</th>
-                    <th scope="col">Ações</th>
+                    <th scope="col" th:text="#{listar.table.col.name}"></th>
+                    <th scope="col" th:text="#{listar.table.col.birth}"></th>
+                    <th scope="col" th:text="#{listar.table.col.profession}"></th>
+                    <th scope="col" th:text="#{listar.table.col.action}"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,10 +39,10 @@
                     </td>
                     <td th:text="${#temporals.format(cliente.dataNascimento, 'dd/MM/yyyy')}"></td>
                     <td th:text="${cliente.profissao}"></td>
-                    <td>
-                        <a th:href="@{/cliente/{id}/editar (id=${cliente.id})}" class="btn btn-warning">Editar</a>
+                    <td >
+                        <a th:href="@{/cliente/{id}/editar (id=${cliente.id})}" class="btn btn-warning" th:text="#{listar.action.edit}"></a>
                         <a th:href="@{/cliente/{id}/excluir (id=${cliente.id})}"
-                           class="btn btn-danger" onclick="return confirm('Excluir o cliente?');">Excluir</a>
+                           class="btn btn-danger" onclick="return confirm('Excluir o cliente?');" th:text="#{listar.action.delete}"></a>
                     </td>
                 </tr>
                 </tbody>
@@ -52,7 +52,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <a th:href="@{/cliente/cadastrar}" class="btn btn-primary">Cadastrar novo cliente</a>
+            <a th:href="@{/cliente/cadastrar}" class="btn btn-primary" th:text="#{listar.action.register}"></a>
         </div>
     </div>
 

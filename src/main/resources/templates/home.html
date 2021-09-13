@@ -2,7 +2,7 @@
 <html th:replace="~{layout :: layout (~{::title}, ~{::main})}" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>Spring Fundamentos</title>
+    <title th:text="#{home.title}"></title>
 </head>
 
 <body>
@@ -10,7 +10,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <h1>Olá, TreinaWeb</h1>
+            <h1 th:text="#{home.header}"></h1>
         </div>
     </div>
     <div class="row">
@@ -22,7 +22,7 @@
     </div>
     <div class="row">
     <div class="col-sm-12">
-        <p>Lista de Aulas</p>
+        <p th:text="#{home.list.title}"home.list.title></p>
         <ul>
             <li th:each="aula: ${aulas}" th:text="${aula}"></li>
         </ul>
