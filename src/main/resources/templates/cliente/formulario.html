@@ -1,23 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<html th:replace="~{layout :: layout (~{::title}, ~{::main})}" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> --->
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-
-    <!-- <title th:if="${cliente.id != null}">Spring Fundamentos - Editar cliente</title>
-    <title th:if="${cliente.id == null}">Spring Fundamentos - Cadastrar novo cliente</title> -->
     <title th:text="${cliente.id == null ? 'Spring Fundamentos - Cadastrar novo cliente' : 'Spring Fundamentos - Editar cliente'}"></title>
 </head>
 
 <body>
-
-<div th:replace="~{fragments/_navbar :: nav}"></div>
-
 <main class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -63,12 +51,6 @@
     </div>
 
 </main>
-
-<!--- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
-</script> --->
-<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-
 </body>
 
 </html>
